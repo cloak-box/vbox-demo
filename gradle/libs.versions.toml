@@ -1,0 +1,105 @@
+[versions]
+annotation = "1.8.1"
+vsystem-version = "1.0.0"
+targetSdk = "34"
+compileSdk = "34"
+minSdk= "26"
+agentweb-core = "v5.1.1-androidx"
+agp = "8.5.1"
+android_cn_oaid = "4.2.9"
+appcompat = "1.7.0"
+constraintlayout = "2.1.4"
+core-ktx = "1.13.1"
+downloader = "v5.0.4-androidx"
+kotlin="2.0.0"
+kotlinx-coroutines-android = "1.7.3"
+lifecycle-viewmodel-ktx = "2.8.4"
+logging-interceptor = "3.14.9"
+material = "1.12.0"
+mmkv = "1.2.7"
+moshi-kotlin-codegen = "1.15.1"
+nestedscrollwebview = "0.1.6"
+palette-ktx = "1.0.0"
+profileinstaller = "1.3.1"
+refresh-layout-kernel = "2.1.0"
+retrofit = "2.11.0"
+work-runtime-version="2.9.0"
+ksp="2.0.0-1.0.22"
+baselineprofile="1.2.4"
+pine-xposed = "0.2.0"
+pine-core = "0.3.0"
+cloak-box-pine-core = "0.3.0.1"
+xutil-core = "2.0.0"
+xxpermissions = "18.68"
+eventbus-version = "3.3.1"
+agconnect-agcp = "1.9.1.301"
+agconnect-apms = "1.6.2.300"
+agconnect-hianalytics = "6.9.0.301"
+cloak-box-proguardConfig-version = "1.0.0.1"
+cloak-box-codeGen-moshi-version = "1.0.0.1"
+cloak-box-objectSign-version = "1.0.0.1"
+cloak-box-maven-api-plugin-version="1.0.0.2"
+cloak-box-sdk-version="1.0.15"
+[libraries]
+agentweb-core = { module = "io.github.justson:agentweb-core", version.ref = "agentweb-core" }
+agentweb-filechooser = { module = "io.github.justson:agentweb-filechooser", version.ref = "agentweb-core" }
+android_cn_oaid = { module = "com.github.gzu-liyujiang:Android_CN_OAID", version.ref = "android_cn_oaid" }
+annotation = { module = "androidx.annotation:annotation", version.ref = "annotation" }
+appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
+constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
+
+vsystem-dexopt = { module = "com.black.cat.vsystem:dexopt", version.ref = "vsystem-version" }
+
+top-canyie-pine-core = { module = "top.canyie.pine:core", version.ref = "pine-core" }
+top-canyie-pine-xposed = { module = "top.canyie.pine:xposed", version.ref = "pine-xposed" }
+core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
+downloader = { module = "com.github.Justson:Downloader", version.ref = "downloader" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx-coroutines-android" }
+lifecycle-livedata-ktx = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "lifecycle-viewmodel-ktx" }
+lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle-viewmodel-ktx" }
+lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle-viewmodel-ktx" }
+logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "logging-interceptor" }
+material = { module = "com.google.android.material:material", version.ref = "material" }
+mmkv = { module = "com.tencent:mmkv", version.ref = "mmkv" }
+moshi-kotlin-codegen = { module = "com.squareup.moshi:moshi-kotlin-codegen", version.ref = "moshi-kotlin-codegen" }
+moshi = { module = "com.squareup.moshi:moshi", version.ref = "moshi-kotlin-codegen" }
+nestedscrollwebview = { module = "com.telefonica:nestedscrollwebview", version.ref = "nestedscrollwebview" }
+palette-ktx = { module = "androidx.palette:palette-ktx", version.ref = "palette-ktx" }
+profileinstaller = { module = "androidx.profileinstaller:profileinstaller", version.ref = "profileinstaller" }
+refresh-header-classics = { module = "io.github.scwang90:refresh-header-classics", version.ref = "refresh-layout-kernel" }
+refresh-layout-kernel = { module = "io.github.scwang90:refresh-layout-kernel", version.ref = "refresh-layout-kernel" }
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+work-runtime ={group = "androidx.work",name = "work-runtime",version.ref = "work-runtime-version" }
+work-multiprocess ={group = "androidx.work",name = "work-multiprocess",version.ref = "work-runtime-version" }
+work-runtime-ktx ={group = "androidx.work",name = "work-runtime-ktx",version.ref = "work-runtime-version" }
+xutil-core = { module = "com.github.xuexiangjys.XUtil:xutil-core", version.ref = "xutil-core" }
+xutil-sub = { module = "com.github.xuexiangjys.XUtil:xutil-sub", version.ref = "xutil-core" }
+xxpermissions = { module = "com.github.getActivity:XXPermissions", version.ref = "xxpermissions" }
+org-greenrobot-eventbus={module="org.greenrobot:eventbus",version.ref="eventbus-version"}
+android-tools-build-gradle={module="com.android.tools.build:gradle",version.ref="agp"}
+huawei-hms-hianalytics = { module="com.huawei.hms:hianalytics",version.ref = "agconnect-hianalytics"}
+huawei-agconnect-agcp = { module="com.huawei.agconnect:agcp",version.ref = "agconnect-agcp"}
+huawei-agconnect-core = { module="com.huawei.agconnect:agconnect-core",version.ref = "agconnect-agcp"}
+huawei-agconnect-apms = { module="com.huawei.agconnect:agconnect-apms",version.ref = "agconnect-apms"}
+huawei-agconnect-crash = { module = "com.huawei.agconnect:agconnect-crash", version.ref = "agconnect-agcp" }
+cloak-box-plugin-maven-api-plugin={module="io.github.cloak-box.plugin:maven-api-plugin",version.ref="cloak-box-maven-api-plugin-version"}
+cloak-box-plugin-proguardConfig={module="io.github.cloak-box.plugin:proguardConfig",version.ref="cloak-box-proguardConfig-version"}
+cloak-box-ksp-objectSign={module="io.github.cloak-box.ksp:objectSign",version.ref="cloak-box-objectSign-version"}
+cloak-box-library-objectSign-annotation={module="io.github.cloak-box.library:objectSign-annotation",version.ref="cloak-box-objectSign-version"}
+cloak-box-ksp-moshi-codeGen={module="io.github.cloak-box.ksp:moshi-codeGen",version.ref="cloak-box-codeGen-moshi-version"}
+cloak-box-sdk-core={module="io.github.cloak-box.sdk:core",version.ref="cloak-box-sdk-version"}
+cloak-box-sdk-dexopt={module="io.github.cloak-box.library:dexopt",version.ref="cloak-box-sdk-version"}
+
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+android-test = { id = "com.android.test", version.ref = "agp" }
+jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+google-devtools-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+androidx-baselineprofile = { id = "androidx.baselineprofile", version.ref = "baselineprofile" }
+
+
+
+

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools">
+  <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+  <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+  <application
+    android:name=".App"
+    android:allowBackup="false"
+    android:icon="@mipmap/ic_launcher"
+    android:label="@string/app_name"
+    android:roundIcon="@mipmap/ic_launcher_round"
+    android:supportsRtl="true"
+    android:usesCleartextTraffic="true"
+    android:theme="@style/Theme.Vsystem"
+    tools:targetApi="31">
+    <activity
+      android:exported="false"
+      android:name=".ui.act.PhoneInstalledListActivity"
+      android:windowSoftInputMode="adjustPan"
+      android:screenOrientation="portrait" />
+    <activity
+      android:name=".ui.act.webview.WebViewActivity"
+      android:screenOrientation="portrait"
+      android:windowSoftInputMode="adjustPan"
+      android:exported="false" />
+    <activity
+      android:screenOrientation="portrait"
+      android:launchMode="singleTask"
+      android:name=".ui.act.MainActivity"
+      android:exported="true"/>
+    <activity
+      android:name=".ui.act.vsys.AppLauncherActivity"
+      android:screenOrientation="portrait"
+      android:windowSoftInputMode="stateHidden"
+      android:exported="false" />
+    <activity
+      android:name=".ui.act.vsys.AppInstallActivity"
+      android:screenOrientation="portrait"
+      android:windowSoftInputMode="stateHidden"
+      android:exported="false" />
+    <activity
+      android:name=".ui.act.LoginActivity"
+      android:screenOrientation="portrait"
+      android:windowSoftInputMode="stateHidden"
+      android:exported="false" />
+    <activity
+      android:screenOrientation="portrait"
+      android:name=".ui.act.SplashActivity"
+      android:exported="true">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+    <service
+      android:name="androidx.work.multiprocess.RemoteWorkerService"
+      android:exported="false"
+      android:process=":dex" />
+    <meta-data
+      android:name="com.huawei.hms.client.appid"
+      android:value="appid=111704959" />
+  </application>
+
+</manifest>

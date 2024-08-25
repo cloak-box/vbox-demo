@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:orientation="vertical"
+  android:gravity="center_vertical"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_height="match_parent">
+
+  <TextView
+    android:id="@+id/ad_area"
+    android:visibility="gone"
+    android:layout_width="match_parent"
+    android:layout_weight="1"
+    android:gravity="center"
+    tools:visibility="visible"
+    android:text="我是广告"
+    android:textSize="48dp"
+    android:layout_height="0dp"/>
+
+
+  <RelativeLayout
+    android:paddingBottom="8dp"
+    android:paddingTop="8dp"
+    android:id="@+id/rl_launcher_app_info"
+    android:layout_gravity="center_vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+      android:layout_centerVertical="true"
+      android:id="@+id/iv_icon"
+      android:layout_marginLeft="15dp"
+      android:layout_width="80dp"
+      android:layout_height="80dp" />
+
+    <TextView
+      android:id="@+id/tv_app_name"
+      android:layout_alignTop="@id/iv_icon"
+      android:layout_toRightOf="@id/iv_icon"
+      android:text="探探"
+      android:layout_marginLeft="15dp"
+      android:textSize="20dp"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content" />
+
+    <ProgressBar
+      android:id="@+id/pb_progress_bar"
+      android:layout_marginLeft="10dp"
+      android:padding="3dp"
+      android:layout_toRightOf="@id/tv_app_name"
+      android:layout_alignTop="@id/tv_app_name"
+      android:layout_alignBottom="@+id/tv_app_name"
+      android:layout_width="20dp"
+      android:layout_height="20dp" />
+
+    <TextView
+      android:id="@+id/tv_description"
+      android:layout_alignBottom="@id/iv_icon"
+      android:layout_toRightOf="@id/iv_icon"
+      android:text="@string/app_launcher_tip"
+      android:layout_marginLeft="15dp"
+      android:textSize="14dp"
+      android:layout_marginRight="15dp"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content" />
+  </RelativeLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
+

@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@drawable/bg_splash"
+  android:orientation="vertical"
+  android:paddingLeft="16dp"
+  android:paddingRight="16dp">
+
+  <RelativeLayout
+    android:id="@+id/rl_app_launcher_area"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="20dp">
+
+    <ImageView
+      android:id="@+id/img_icon_launcher"
+      android:layout_width="60dp"
+      android:layout_height="60dp"
+      android:src="@drawable/icon_launcher"
+      android:transitionName="icon_launcher" />
+
+    <TextView
+      android:id="@+id/tv_welcome"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignTop="@+id/img_icon_launcher"
+      android:layout_marginTop="2dp"
+      android:layout_toRightOf="@+id/img_icon_launcher"
+      android:text="@string/login_welcome_use"
+      android:textColor="@android:color/black"
+      android:textSize="16dp" />
+
+    <TextView
+      android:id="@+id/tv_app_name"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignBottom="@+id/img_icon_launcher"
+      android:layout_marginBottom="5dp"
+      android:layout_toRightOf="@+id/img_icon_launcher"
+      android:text="@string/app_name"
+      android:textColor="@android:color/black"
+      android:textSize="20dp"
+      android:textStyle="bold" />
+
+    <ImageView
+      android:id="@+id/img_close_app"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentRight="true"
+      android:src="@drawable/login_close" />
+  </RelativeLayout>
+
+  <androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:paddingBottom="10dp"
+    android:paddingTop="8dp">
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical">
+
+      <TextView
+        android:id="@+id/tv_login_read_protocol"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:lineSpacingExtra="5dp"
+        android:text="@string/login_read_protocol"
+        android:textColor="@android:color/black"
+        android:textSize="16dp" />
+
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/login_first_launcher"
+        android:textColor="@android:color/black"
+        android:textSize="16dp" />
+
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:orientation="horizontal">
+
+        <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="15dp"
+          android:layout_marginTop="10dp"
+          android:layout_marginBottom="10dp"
+          android:src="@drawable/login_store_permission" />
+
+        <LinearLayout
+          android:layout_marginLeft="15dp"
+          android:gravity="center_vertical"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical">
+
+          <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/login_store_permission"
+            android:textColor="@android:color/black"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+          <TextView
+            android:layout_marginTop="6dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/login_store_permission_tip" />
+        </LinearLayout>
+      </LinearLayout>
+      <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="15dp"
+          android:layout_marginTop="10dp"
+          android:layout_marginBottom="10dp"
+          android:src="@drawable/login_phone_permission" />
+
+        <LinearLayout
+          android:layout_marginLeft="15dp"
+          android:gravity="center_vertical"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical">
+
+          <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/login_phone_permission"
+            android:textColor="@android:color/black"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+          <TextView
+            android:layout_marginTop="6dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="@string/login_phone_permission_tip" />
+        </LinearLayout>
+
+      </LinearLayout>
+      <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="15dp"
+          android:layout_marginTop="10dp"
+          android:layout_marginBottom="10dp"
+          android:src="@drawable/login_app_list_permission" />
+
+        <LinearLayout
+          android:layout_marginLeft="15dp"
+          android:gravity="center_vertical"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical">
+
+          <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/login_app_list_permission"
+            android:textColor="@android:color/black"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+          <TextView
+            android:layout_marginTop="6dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="@string/login_app_list_permission_tip" />
+        </LinearLayout>
+
+      </LinearLayout>
+      <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="15dp"
+          android:layout_marginTop="10dp"
+          android:layout_marginBottom="10dp"
+          android:src="@drawable/login_launcher_app_permission" />
+
+        <LinearLayout
+          android:layout_marginLeft="15dp"
+          android:gravity="center_vertical"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical">
+
+          <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/login_launcher_app_permission"
+            android:textColor="@android:color/black"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+          <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="6dp"
+            android:text="@string/login_launcher_app_permission_tip" />
+        </LinearLayout>
+
+      </LinearLayout>
+    </LinearLayout>
+  </androidx.core.widget.NestedScrollView>
+
+
+  <Button
+    android:id="@+id/btn_login_agreement"
+    android:layout_width="match_parent"
+    android:layout_height="44dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/login_shape_8"
+    android:text="@string/login_agreement" />
+
+  <TextView
+    android:id="@+id/tv_login_disagreement"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginBottom="50dp"
+    android:text="@string/login_disagreement" />
+</LinearLayout>
