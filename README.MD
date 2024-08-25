@@ -7,4 +7,7 @@
 # 感谢
 [pine](https://github.com/canyie/pine)
 
+# License
+[GPL3](LICENSE) 
+
 
