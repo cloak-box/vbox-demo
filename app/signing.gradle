@@ -1,0 +1,12 @@
+android {
+    signingConfigs {
+        release {
+            storeFile file("vbox.jks")
+            storePassword 'C915D52ECB52471E98982AB519382EDB'
+            keyAlias 'box'
+            keyPassword 'A6659F392B184DFAA57E05FCA7FBD2C6'
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+    }
+}

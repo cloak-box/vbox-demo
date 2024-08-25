@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical"
+  tools:context=".ui.act.PhoneInstalledListActivity">
+
+
+  <RelativeLayout
+    android:id="@+id/rl_title_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.xuexiang.xui.widget.actionbar.TitleBar
+      android:id="@+id/title_bar"
+      app:tb_leftText="@string/install_app_list"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"/>
+
+    <com.black.cat.system.demo.widget.VSearchView
+      android:id="@+id/title_bar_searchview"
+      android:layout_marginTop="-46dp"
+      android:background="@color/main_theme_color"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"/>
+  </RelativeLayout>
+
+
+  <FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/rv_recyclerView"
+      android:layout_marginRight="30dp"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent" />
+    <com.black.cat.system.demo.widget.WaveSideBarView
+      android:id="@+id/wave_side_bar_view"
+      android:layout_width="wrap_content"
+      app:sidebar_ball_radius="30dp"
+      app:sidebar_radius="26dp"
+      android:layout_height="match_parent"/>
+  </FrameLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>
+

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="46dp"
+  android:gravity="center_vertical"
+  android:orientation="horizontal"
+  android:paddingLeft="15dp"
+  android:paddingRight="15dp"
+  tools:background="@color/main_theme_color">
+
+  <ImageView
+    android:id="@+id/icon_query"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/icon_action_query" />
+
+  <EditText
+    android:id="@+id/edit_search"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical"
+    android:layout_weight="1"
+    android:background="@null"
+    android:hint="@string/search_hint"
+    android:maxLines="1"
+    android:textSize="18sp"
+    android:textColor="@android:color/white"
+    android:textColorHint="@android:color/white"
+    android:textCursorDrawable="@null" />
+
+  <TextView
+    android:id="@+id/tv_cancel"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:text="@string/cancel"
+    android:textSize="18sp"
+    android:textColor="@android:color/white" />
+</LinearLayout>

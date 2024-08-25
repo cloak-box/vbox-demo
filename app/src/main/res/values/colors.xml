@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="purple_200">#FFBB86FC</color>
+  <color name="purple_500">#FF6200EE</color>
+  <color name="purple_700">#FF3700B3</color>
+  <color name="teal_200">#FF03DAC5</color>
+  <color name="teal_700">#FF018786</color>
+  <color name="black">#FF000000</color>
+  <color name="white">#FFFFFFFF</color>
+
+  <color name="black_02_opacity">#05000000</color>
+  <color name="black_03_opacity">#08000000</color>
+  <color name="black_05_opacity">#0D000000</color>
+  <color name="black_07_opacity">#13000000</color>
+  <color name="black_10_opacity">#1a000000</color>
+  <color name="black_15_opacity">#26000000</color>
+  <color name="black_20_opacity">#33000000</color>
+  <color name="black_22_opacity">#37000000</color>
+  <color name="black_30_opacity">#4c000000</color>
+  <color name="black_38_opacity">#61000000</color>
+  <color name="black_40_opacity">#66000000</color>
+  <color name="black_50_opacity">#80000000</color>
+  <color name="black_60_opacity">#99000000</color>
+  <color name="black_80_opacity">#cc000000</color>
+  <color name="black_81_opacity">#cf000000</color>
+  <color name="black_90_opacity">#e6000000</color>
+
+  <color name="main_page_color">#E7F3FB</color>
+  <color name="main_theme_color">#299EE3</color>
+  <color name="red_start">#EE3455</color>
+  <color name="red_end">#FFaa89</color>
+</resources>

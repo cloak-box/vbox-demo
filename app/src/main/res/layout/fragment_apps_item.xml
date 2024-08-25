@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:gravity="center"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:paddingTop="43dp"
+  android:background="@drawable/shape_while_15"
+  android:paddingBottom="33dp"
+  android:layout_height="wrap_content">
+
+  <androidx.appcompat.widget.AppCompatImageView
+    android:id="@+id/img_app_icon"
+    android:layout_width="48dp"
+    android:layout_height="48dp"
+    tools:src="@drawable/icon_add_app" />
+
+  <TextView
+    android:id="@+id/tv_app_name"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:ellipsize="end"
+    android:maxEms="4"
+    android:singleLine="true"
+    android:text="虚拟系统"
+    android:textSize="16dp" />
+</LinearLayout>

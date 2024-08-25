@@ -1,0 +1,14 @@
+android {
+    compileSdk = 34
+    defaultConfig{
+        minSdk = libs.versions.minSdk.get() as int
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+        freeCompilerArgs = ["-Xno-param-assertions", "-Xno-receiver-assertions", "-Xno-call-assertions"]
+    }
+}
