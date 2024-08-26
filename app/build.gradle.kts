@@ -17,8 +17,8 @@ android {
   defaultConfig {
     applicationId = "com.black.cat.system.demo"
     targetSdk = libs.versions.targetSdk.get().toInt()
-    versionCode = 1000
-    versionName = "1.0.0.0"
+    versionCode = 1015
+    versionName = "1.0.15"
     ndk {
       abiFilters.add("armeabi-v7a")
       abiFilters.add("arm64-v8a")
