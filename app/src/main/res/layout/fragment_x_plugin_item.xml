@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:id="@+id/rl_add_app"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:background="@drawable/shape_while_15"
+  android:clickable="true"
+  android:paddingLeft="8dp"
+  android:paddingTop="18dp"
+  android:paddingRight="8dp"
+  android:paddingBottom="18dp">
+
+  <androidx.appcompat.widget.AppCompatImageView
+    android:id="@+id/img_plugin_icon"
+    android:layout_width="48dp"
+    android:layout_height="48dp" />
+
+
+  <TextView
+    android:id="@+id/tv_plugin_name"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_toRightOf="@id/img_plugin_icon"
+    android:text="贝壳找房" />
+
+  <TextView
+    android:id="@+id/tv_plugin_desc"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/tv_plugin_name"
+    android:layout_marginTop="7dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="20dp"
+    android:layout_toLeftOf="@+id/sc_enable_plugin"
+    android:layout_toRightOf="@id/img_plugin_icon"
+    android:gravity="bottom"
+    android:text="贝壳找房" />
+
+  <androidx.appcompat.widget.SwitchCompat
+    android:id="@+id/sc_enable_plugin"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentRight="true"
+    android:layout_centerVertical="true"
+    android:textOff="禁用"
+    android:textOn="启用" />
+</RelativeLayout>

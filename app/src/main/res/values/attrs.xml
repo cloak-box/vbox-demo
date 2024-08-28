@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <declare-styleable name="WaveSideBarView">
+    <attr name="sidebar_text_color" format="color|reference"/>
+    <attr name="sidebar_background_color" format="color|reference"/>
+    <attr name="sidebar_choosetext_color" format="color|reference"/>
+    <attr name="sidebar_text_size" format="dimension"/>
+    <attr name="sidebar_large_text_size" format="dimension"/>
+    <attr name="sidebar_radius" format="dimension"/>
+    <attr name="sidebar_ball_radius" format="dimension"/>
+  </declare-styleable>
+</resources>

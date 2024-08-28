@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:orientation="vertical"
+  android:layout_height="match_parent"
+  tools:context=".ui.act.MainActivity">
+
+  <com.xuexiang.xui.widget.actionbar.TitleBar
+    android:id="@+id/title_bar"
+    app:tb_leftImageResource="@null"
+    app:tb_actionTextSize="15sp"
+    app:tb_leftText="@string/main_tab_apps"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
+
+  <androidx.viewpager2.widget.ViewPager2
+    android:layout_width="match_parent"
+    android:id="@+id/viewpager"
+    android:layout_weight="1"
+    android:layout_height="0dp" />
+
+  <com.google.android.material.tabs.TabLayout
+    android:layout_width="match_parent"
+    app:tabIndicatorHeight="0dp"
+    android:id="@+id/tab_layout"
+    android:background="@color/white"
+    android:layout_height="60dp">
+    <com.google.android.material.tabs.TabItem
+      android:layout_width="wrap_content"
+      android:layout="@layout/main_activity_tab_view_layout_apps"
+      android:layout_height="wrap_content"/>
+
+    <com.google.android.material.tabs.TabItem
+      android:layout_width="wrap_content"
+      android:layout="@layout/main_activity_tab_view_layout_x_plugins"
+      android:layout_height="wrap_content"/>
+
+
+    <com.google.android.material.tabs.TabItem
+      android:layout_width="wrap_content"
+      android:layout="@layout/main_activity_tab_view_layout_me"
+      android:layout_height="wrap_content"/>
+  </com.google.android.material.tabs.TabLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

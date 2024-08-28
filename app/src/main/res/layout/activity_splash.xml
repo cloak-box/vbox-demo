@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@drawable/bg_splash"
+>
+
+
+  <ImageView
+    android:id="@+id/img_icon_launcher"
+    android:layout_width="160dp"
+    android:layout_height="160dp"
+    android:transitionName="icon_launcher"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="60dp"
+    android:src="@drawable/icon_launcher" />
+
+
+  <com.xuexiang.xui.widget.progress.CircleProgressView
+    android:id="@+id/progressView_circle_main"
+    android:layout_width="220dp"
+    android:layout_centerHorizontal="true"
+    android:layout_height="220dp"
+    android:layout_alignParentBottom="true"
+    android:layout_gravity="center"
+    android:layout_marginTop="12dp"
+    android:layout_marginBottom="30dp"
+    app:cpv_animate_type="AccelerateDecelerateInterpolator"
+    app:cpv_circle_broken="true"
+    app:cpv_end_color="@color/red_start"
+    app:cpv_end_progress="98"
+    app:cpv_isFilled="false"
+    app:cpv_isTracked="true"
+    app:cpv_progress_duration="2000"
+    app:cpv_progress_textColor="@color/main_theme_color"
+    app:cpv_progress_textSize="48sp"
+    app:cpv_progress_textVisibility="false"
+    app:cpv_progress_width="26dp"
+    app:cpv_start_color="@color/red_end"
+    app:cpv_start_progress="0"
+    app:cpv_track_color="#F0F0F0"
+    app:cpv_track_width="26dp" />
+
+  <TextView
+    android:layout_alignLeft="@+id/progressView_circle_main"
+    android:layout_alignRight="@+id/progressView_circle_main"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:text="启动中"
+    android:layout_alignBottom="@+id/progressView_circle_main"
+    android:textColor="@color/main_theme_color"
+    android:textSize="22sp" />
+
+  <LinearLayout
+    android:layout_alignLeft="@+id/progressView_circle_main"
+    android:layout_alignRight="@+id/progressView_circle_main"
+    android:layout_alignTop="@+id/progressView_circle_main"
+    android:layout_alignBottom="@+id/progressView_circle_main"
+    android:layout_width="wrap_content"
+    android:gravity="center"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+      android:id="@+id/progress_text_main"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="0"
+      android:textColor="@color/main_theme_color"
+      android:textSize="40sp" />
+
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="%"
+      android:textColor="@color/main_theme_color"
+      android:textSize="32sp" />
+  </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,13 @@
+apply plugin: 'com.huawei.agconnect'
+
+
+dependencies {
+    implementation(libs.huawei.hms.hianalytics)
+    implementation(libs.huawei.agconnect.core)
+    implementation(libs.huawei.agconnect.apms)
+    implementation libs.huawei.agconnect.crash
+}
+
+agcp {
+    manifest = false
+}

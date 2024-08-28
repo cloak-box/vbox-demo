@@ -1,0 +1,25 @@
+apply plugin: 'com.android.library'
+apply plugin: 'org.jetbrains.kotlin.android'
+
+apply from:"../common_config.gradle"
+
+android {
+    namespace  "top.canyie.dreamland"
+    defaultConfig {
+        consumerProguardFiles 'proguard-rules.pro'
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+    implementation(libs.top.canyie.pine.core)
+    implementation(libs.top.canyie.pine.xposed)
+    compileOnly(project(":fake_api"))
+}
