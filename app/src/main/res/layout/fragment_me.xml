@@ -291,6 +291,34 @@
       android:layout_marginLeft="20dp"
       android:layout_marginRight="20dp" />
     <RelativeLayout
+      android:id="@+id/rl_set_password"
+      android:layout_width="wrap_content"
+      android:layout_height="52dp"
+      android:background="@drawable/shape_while"
+      android:gravity="center_vertical"
+      android:paddingLeft="20dp"
+      android:paddingRight="20dp">
+
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/me_set_password"
+        android:textSize="15sp" />
+
+      <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentRight="true"
+        android:scaleType="centerInside"
+        android:src="@drawable/icon_right_arrow" />
+    </RelativeLayout>
+    <include
+      layout="@layout/view_divider_line"
+      android:layout_width="match_parent"
+      android:layout_height="1px"
+      android:layout_marginLeft="20dp"
+      android:layout_marginRight="20dp" />
+    <RelativeLayout
       android:id="@+id/rl_apply_for_cancellation"
       android:layout_width="wrap_content"
       android:layout_height="52dp"

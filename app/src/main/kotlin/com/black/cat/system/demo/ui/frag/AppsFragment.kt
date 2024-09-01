@@ -12,10 +12,14 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.viewbinding.ViewBinding
 import com.black.cat.system.demo.R
 import com.black.cat.system.demo.bean.AppInfo
+import com.black.cat.system.demo.bean.TYPE_APP
+import com.black.cat.system.demo.bean.TYPE_CALC
+import com.black.cat.system.demo.bean.TYPE_DEFAULT
 import com.black.cat.system.demo.config.AppConfig
 import com.black.cat.system.demo.contants.UrlConstant
 import com.black.cat.system.demo.databinding.FragmentAppsBinding
 import com.black.cat.system.demo.databinding.FragmentAppsItemBinding
+import com.black.cat.system.demo.ui.act.CalcActivity
 import com.black.cat.system.demo.ui.act.PhoneInstalledListActivity
 import com.black.cat.system.demo.ui.act.vsys.AppInstallActivity
 import com.black.cat.system.demo.ui.act.vsys.AppLauncherActivity
@@ -93,7 +97,7 @@ class AppsFragment : BaseFragment() {
         override fun onViewAttachedToWindow(holder: BaseHolder<AppInfo, ViewBinding>) {
           super.onViewAttachedToWindow(holder)
           val appInfp = getData()[holder.adapterPosition]
-          if (appInfp.isDefault && AppConfig.needShowInstallAppGuide()) {
+          if (appInfp.isDefault == TYPE_DEFAULT && AppConfig.needShowInstallAppGuide()) {
             GuideCaseView.Builder(fragmentOwner.hostActivity())
               .focusOn(holder.binding.root)
               .title("点击添加应用")
@@ -117,17 +121,26 @@ class AppsFragment : BaseFragment() {
     adapter.itemClickListener =
       object : BaseItemClickListener<AppInfo> {
         override fun onClick(binding: ViewBinding, positionData: AppInfo, position: Int) {
-          if (positionData.isDefault) {
-            selectAppLauncher()
-          } else {
-            AppLauncherActivity.start(fragmentOwner.hostActivity(), positionData.applicationInfo!!)
+          when (positionData.isDefault) {
+            TYPE_DEFAULT -> {
+              selectAppLauncher()
+            }
+            TYPE_CALC -> {
+              CalcActivity.start(fragmentOwner.hostActivity())
+            }
+            else -> {
+              AppLauncherActivity.start(
+                fragmentOwner.hostActivity(),
+                positionData.applicationInfo!!
+              )
+            }
           }
         }
       }
     adapter.itemLongClickListener =
       object : BaseItemLongClickListener<AppInfo> {
         override fun onLongClick(binding: ViewBinding, positionData: AppInfo, position: Int) {
-          if (!positionData.isDefault) {
+          if (positionData.isDefault == TYPE_APP) {
             showAppActions(positionData.applicationInfo!!)
           }
         }
@@ -153,8 +166,11 @@ class AppsFragment : BaseFragment() {
     viewModel.installedPackage.observe(viewLifecycleOwner) {
       fragmentOwner.hideLoading()
       installedPackageAdapter.clear()
-      installedPackageAdapter.add(AppInfo(true))
-      installedPackageAdapter.addAll(it.map { applicationInfo -> AppInfo(false, applicationInfo) })
+      installedPackageAdapter.add(AppInfo(TYPE_DEFAULT))
+      installedPackageAdapter.add(AppInfo(TYPE_CALC))
+      installedPackageAdapter.addAll(
+        it.map { applicationInfo -> AppInfo(applicationInfo = applicationInfo) }
+      )
       binding.rvRecyclerView.adapter = installedPackageAdapter
     }
     viewModel.unInstallPackage.observe(viewLifecycleOwner) { applicationInfo ->
@@ -276,9 +292,13 @@ class InstalledPackageHolder(itemView: View) :
   BaseHolder<AppInfo, FragmentAppsItemBinding>(itemView) {
   override fun initBinding(itemView: View) = FragmentAppsItemBinding.bind(itemView)
   override fun bindView(positionData: AppInfo, position: Int) {
-    if (positionData.isDefault) {
+    if (positionData.isDefault == TYPE_DEFAULT) {
       binding.imgAppIcon.setImageResource(R.drawable.icon_add_app)
       binding.tvAppName.text = itemView.context.getString(R.string.install_app_list)
+    } else if (positionData.isDefault == TYPE_CALC) {
+      binding.imgAppIcon.setImageResource(R.drawable.vbox_ic_calc)
+      binding.tvAppName.text =
+        itemView.context.getString(com.darkempire78.opencalculator.R.string.app_name_display)
     } else {
       binding.tvAppName.text =
         positionData.applicationInfo?.loadLabel(itemView.context.packageManager)

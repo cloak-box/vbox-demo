@@ -28,7 +28,6 @@ ksp="2.0.0-1.0.22"
 baselineprofile="1.2.4"
 pine-xposed = "0.2.0"
 pine-core = "0.3.0"
-cloak-box-pine-core = "0.3.0.1"
 xutil-core = "2.0.0"
 xxpermissions = "18.68"
 eventbus-version = "3.3.1"
@@ -40,16 +39,13 @@ cloak-box-codeGen-moshi-version = "1.0.0.1"
 cloak-box-objectSign-version = "1.0.0.1"
 cloak-box-maven-api-plugin-version="1.0.0.2"
 cloak-box-sdk-version="1.0.15"
+cloak-box-calc = "1.0.3"
 [libraries]
 agentweb-core = { module = "io.github.justson:agentweb-core", version.ref = "agentweb-core" }
 agentweb-filechooser = { module = "io.github.justson:agentweb-filechooser", version.ref = "agentweb-core" }
 android_cn_oaid = { module = "com.github.gzu-liyujiang:Android_CN_OAID", version.ref = "android_cn_oaid" }
-annotation = { module = "androidx.annotation:annotation", version.ref = "annotation" }
 appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
 constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
-
-vsystem-dexopt = { module = "com.black.cat.vsystem:dexopt", version.ref = "vsystem-version" }
-
 top-canyie-pine-core = { module = "top.canyie.pine:core", version.ref = "pine-core" }
 top-canyie-pine-xposed = { module = "top.canyie.pine:xposed", version.ref = "pine-xposed" }
 core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
@@ -86,6 +82,7 @@ cloak-box-plugin-maven-api-plugin={module="io.github.cloak-box.plugin:maven-api-
 cloak-box-plugin-proguardConfig={module="io.github.cloak-box.plugin:proguardConfig",version.ref="cloak-box-proguardConfig-version"}
 cloak-box-ksp-objectSign={module="io.github.cloak-box.ksp:objectSign",version.ref="cloak-box-objectSign-version"}
 cloak-box-library-objectSign-annotation={module="io.github.cloak-box.library:objectSign-annotation",version.ref="cloak-box-objectSign-version"}
+cloak-box-library-calc={module="io.github.cloak-box.library:calc",version.ref="cloak-box-calc"}
 cloak-box-ksp-moshi-codeGen={module="io.github.cloak-box.ksp:moshi-codeGen",version.ref="cloak-box-codeGen-moshi-version"}
 cloak-box-sdk-core={module="io.github.cloak-box.sdk:core",version.ref="cloak-box-sdk-version"}
 cloak-box-sdk-dexopt={module="io.github.cloak-box.library:dexopt",version.ref="cloak-box-sdk-version"}

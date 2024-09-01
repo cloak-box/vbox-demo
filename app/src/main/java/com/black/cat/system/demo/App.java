@@ -1,32 +1,35 @@
 package com.black.cat.system.demo;
 
+import android.app.Activity;
 import android.app.Application;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.graphics.BitmapFactory;
 import androidx.annotation.NonNull;
-import com.black.cat.system.demo.bean.AppInfo;
+import com.black.cat.system.demo.bean.AppInfoKt;
 import com.black.cat.system.demo.hook.PinedHookKt;
 import com.black.cat.system.demo.hook.PluginManager;
+import com.black.cat.system.demo.ui.act.CalcActivity;
 import com.black.cat.system.demo.ui.act.MainActivity;
+import com.black.cat.system.demo.ui.act.SplashActivity;
+import com.black.cat.system.demo.utils.AppFrontBackManager;
+import com.black.cat.system.demo.utils.AppFrontBackManager.OnAppStatusListener;
 import com.black.cat.system.demo.utils.FileUtilKt;
 import com.black.cat.vsystem.api.NotificationBuilder;
-import com.black.cat.vsystem.api.VPackageManager;
 import com.black.cat.vsystem.api.Vlog;
 import com.black.cat.vsystem.api.Vsystem;
 import com.black.cat.vsystem.api.VsystemConfig;
 import com.black.cat.vsystem.dexopt.ShareLog;
+import com.darkempire78.opencalculator.OpenCalcAppKt;
+import com.darkempire78.opencalculator.activities.SettingsActivity;
 import com.huawei.agconnect.AGConnectInstance;
 import com.huawei.agconnect.crash.AGConnectCrash;
 import com.tencent.mmkv.MMKV;
 import java.io.File;
-import java.util.function.BiConsumer;
 import top.canyie.pine.xposed.PineXposed;
 
 public class App extends Application {
@@ -63,7 +66,7 @@ public class App extends Application {
                         .getPlugins()
                         .forEach(
                             (s, appInfo) -> {
-                              if (appInfo.isDefault()) {
+                              if (appInfo.isDefault() == AppInfoKt.TYPE_DEFAULT) {
                                 File moduleFile = new File(appInfo.getApplicationInfo().sourceDir);
                                 PineXposed.loadModule(
                                     moduleFile,
@@ -73,7 +76,7 @@ public class App extends Application {
                                     packageName,
                                     processName,
                                     packageInfo.applicationInfo,
-                                    packageName.equals(packageName),
+                                    processName.equals(packageName),
                                     classLoader);
                               }
                             });
@@ -103,14 +106,17 @@ public class App extends Application {
     NotificationChannel notificationChannel = notificationManager.getNotificationChannel(channelID);
     if (notificationChannel == null) {
       NotificationChannel channel =
-          new NotificationChannel(
-              channelID, "保活防止系统冻结server进程", NotificationManager.IMPORTANCE_MIN);
+          new NotificationChannel(channelID, "keep-live", NotificationManager.IMPORTANCE_MIN);
       notificationManager.createNotificationChannel(channel);
     }
     Notification.Builder builder =
         new Notification.Builder(this, channelID) // 获取一个Notification构造器
-            .setSmallIcon(R.mipmap.ic_launcher)
-            .setLargeIcon(BitmapFactory.decodeResource(this.getResources(), R.mipmap.ic_launcher))
+            .setSmallIcon(R.mipmap.box_ic_launcher)
+            .setLargeIcon(
+                BitmapFactory.decodeResource(this.getResources(), R.mipmap.box_ic_launcher))
+            .setContentText("为保证及时收到应用消息，请勿关闭此通知")
+            .setContentTitle("\"" + getString(R.string.app_name) + "\"正在运行")
+            .setTicker("123456789")
             .setWhen(System.currentTimeMillis()); // 设置该通知发生的时间
     return builder.build();
   }
@@ -120,6 +126,29 @@ public class App extends Application {
     super.onCreate();
     if (AGConnectInstance.getInstance() == null) {
       AGConnectInstance.initialize(getApplicationContext());
+    } else {
+      OpenCalcAppKt.initTheme(this);
+      AppFrontBackManager.getInstance().init(this);
+      AppFrontBackManager.getInstance()
+          .addListener(
+              new OnAppStatusListener() {
+                @Override
+                public void onFront(@NonNull Activity activity) {
+                  if (isWhiteActivity(activity)) {
+                    return;
+                  }
+                  CalcActivity.Companion.start(activity, true, false);
+                }
+
+                @Override
+                public void onBack() {}
+              });
     }
+  }
+
+  private boolean isWhiteActivity(Activity activity) {
+    return activity instanceof SplashActivity
+        || activity instanceof CalcActivity
+        || activity instanceof SettingsActivity;
   }
 }

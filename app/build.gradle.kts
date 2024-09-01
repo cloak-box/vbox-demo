@@ -87,6 +87,7 @@ dependencies {
   implementation(libs.org.greenrobot.eventbus)
   implementation(libs.nestedscrollwebview)
   implementation(libs.cloak.box.library.objectSign.annotation)
+  implementation(libs.cloak.box.library.calc)
   ksp(libs.moshi.kotlin.codegen)
   ksp(libs.cloak.box.ksp.objectSign)
   ksp(libs.cloak.box.ksp.moshi.codeGen)

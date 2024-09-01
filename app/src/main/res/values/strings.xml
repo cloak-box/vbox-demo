@@ -1,5 +1,5 @@
 <resources>
-  <string name="app_name">隐藏工具箱</string>
+  <string name="app_name">陌隐身助手</string>
   <string name="install_app_list">添加应用</string>
   <string name="main_add_title">添加</string>
   <string name="common_progress_loading">加载中</string>
@@ -26,6 +26,7 @@
   <string name="me_add_qq_group">加入QQ交流群</string>
   <string name="me_github">GitHub主页</string>
   <string name="me_open_gms">安装GMS服务</string>
+  <string name="me_set_password">设置密码</string>
   <string name="login_welcome_use">欢迎您使用</string>
   <string name="login_agreement">同意并进入</string>
   <string name="login_disagreement">不同意</string>
@@ -55,5 +56,23 @@
   <string name="net_work_err">服务暂时无法响应，请检测网络连接</string>
   <string name="install_gms_success">Google服务安装成功</string>
   <string name="install_gms_failure">Google服务安装失败</string>
-
+  <string name="main_import_from_sd">SD卡导入</string>
+  <string name="main_add_plugin">添加插件</string>
+  <string name="x_plugin_install_fail">安装失败 请检测安装包是否正确</string>
+  <string name="x_plugin_select_xposed_plugin">请选择xposed插件</string>
+  <string name="password_setting">密码设置</string>
+  <string name="password_setting_btn_text">设置密码</string>
+  <string name="password_setting_change">更换密码</string>
+  <string name="password_setting_tip">只需要设置4位数密码，就可以开启专属自己的私密空间。设置完成后，每次进入应用需要输入密码验证，保证您的隐私安全。</string>
+  <string name="input_password">请输入4位数密码</string>
+  <string name="input_password_tip">启动APP时设置密码开启自己的专属空间\n为严格保护数据隐私，忘记密码无法找回</string>
+  <string name="input_password_again">再次输入4位数密码</string>
+  <string name="input_password_error">两次输入的密码不一致，请重新输入</string>
+  <string name="input_password_success">密码设置成功，现在输入密码继续体验吧</string>
+  <string name="prompt_popup_title">温馨提示</string>
+  <string name="clear_password_description">密码清除后，您的隐私空间将面安全风险！确定要清除密码吗？</string>
+  <string name="clear_password_cancel">再想想</string>
+  <string name="clear_password_sure">确定</string>
+  <string name="warning_password_tip">您的密码是：%1$s \n为严格保护数据隐私，忘记密码无法找回</string>
+  <string name="calc_close_warning_password_tip">关闭</string>
 </resources>

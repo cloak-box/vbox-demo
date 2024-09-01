@@ -13,7 +13,7 @@ import com.black.cat.system.demo.ui.base.owner.FragmentOwner
 
 open class BaseActivity : AppCompatActivity(), FragmentOwner {
 
-  val progressDialog: Dialog by lazy {
+  private val progressDialog: Dialog by lazy {
     val binding = CommonProgressDialogBinding.inflate(layoutInflater)
     val p =
       AlertDialog.Builder(this, R.style.progress_dialog)

@@ -6,6 +6,7 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import androidx.lifecycle.MutableLiveData
 import com.black.cat.system.demo.bean.AppInfo
+import com.black.cat.system.demo.bean.TYPE_APP
 import com.black.cat.system.demo.hook.PluginManager
 import com.black.cat.system.demo.utils.tmpApk
 import com.black.cat.vsystem.api.VPackageManager
@@ -56,7 +57,7 @@ class XPluginFragmentViewModel : BaseViewModel() {
               return@filter it.metaData.getBoolean("xposedmodule")
             }
             .map { applicationInfo ->
-              val enable = PluginManager.plugins[applicationInfo.packageName]?.isDefault ?: false
+              val enable = PluginManager.plugins[applicationInfo.packageName]?.isDefault ?: TYPE_APP
               AppInfo(enable, applicationInfo)
             }
         PluginManager.savePlugins(result)

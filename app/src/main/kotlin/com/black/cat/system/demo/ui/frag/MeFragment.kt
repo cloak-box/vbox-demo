@@ -16,6 +16,7 @@ import com.black.cat.system.demo.databinding.FragmentMeBinding
 import com.black.cat.system.demo.kbus.EVENT_UPDATE_USER_INFO
 import com.black.cat.system.demo.kbus.KBaseEvent
 import com.black.cat.system.demo.ui.act.LoginActivity
+import com.black.cat.system.demo.ui.act.SettingPasswordActivity
 import com.black.cat.system.demo.ui.act.webview.WebViewActivity
 import com.black.cat.system.demo.ui.base.BaseFragment
 import com.black.cat.system.demo.user.UserManager
@@ -25,7 +26,6 @@ import com.black.cat.system.demo.view.StateObserver
 import com.black.cat.system.demo.view.UserViewModel
 import com.black.cat.vsystem.api.Vlog
 import com.black.cat.vsystem.api.Vsystem
-import com.huawei.agconnect.crash.AGConnectCrash
 import com.xuexiang.xui.widget.dialog.materialdialog.MaterialDialog
 import com.xuexiang.xutil.tip.ToastUtils
 import org.greenrobot.eventbus.EventBus
@@ -50,10 +50,18 @@ class MeFragment : BaseFragment() {
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
     binding.rlPolicy.singleClickListener {
-      WebViewActivity.start(fragmentOwner.hostActivity(), UrlConstant.PRIVACY_URL, "隐私政策")
+      WebViewActivity.start(
+        fragmentOwner.hostActivity(),
+        UrlConstant.PRIVACY_URL,
+        getString(R.string.about_policy)
+      )
     }
     binding.rlUserAgreement.singleClickListener {
-      WebViewActivity.start(fragmentOwner.hostActivity(), UrlConstant.PROTOCOL_URL, "用户协议")
+      WebViewActivity.start(
+        fragmentOwner.hostActivity(),
+        UrlConstant.PROTOCOL_URL,
+        getString(R.string.about_user_agreement)
+      )
     }
 
     binding.rlGithub.singleClickListener {
@@ -118,7 +126,6 @@ class MeFragment : BaseFragment() {
     )
 
     binding.rlApplyForCancellation.singleClickListener {
-      AGConnectCrash.getInstance().testIt(context)
       MaterialDialog.Builder(fragmentOwner.hostActivity())
         .iconRes(R.drawable.icon_tip)
         .title(R.string.me_logout_popup_title)
@@ -142,6 +149,9 @@ class MeFragment : BaseFragment() {
         fragmentOwner.showLoading()
         meFragmentViewModel.installGms(fragmentOwner.hostActivity())
       }
+    }
+    binding.rlSetPassword.singleClickListener {
+      startActivity(Intent(fragmentOwner.hostActivity(), SettingPasswordActivity::class.java))
     }
   }
 

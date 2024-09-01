@@ -4,17 +4,18 @@ import android.content.pm.ApplicationInfo
 import android.os.Parcel
 import android.os.Parcelable
 
-class AppInfo(var isDefault: Boolean = false, val applicationInfo: ApplicationInfo? = null) :
+const val TYPE_DEFAULT = 0
+const val TYPE_CALC = 1
+const val TYPE_APP = 2
+
+class AppInfo(var isDefault: Int = TYPE_APP, val applicationInfo: ApplicationInfo? = null) :
   Parcelable {
   constructor(
     parcel: Parcel
-  ) : this(
-    parcel.readByte() != 0.toByte(),
-    parcel.readParcelable(ApplicationInfo::class.java.classLoader)
-  )
+  ) : this(parcel.readInt(), parcel.readParcelable(ApplicationInfo::class.java.classLoader))
 
   override fun writeToParcel(parcel: Parcel, flags: Int) {
-    parcel.writeByte(if (isDefault) 1 else 0)
+    parcel.writeInt(isDefault)
     parcel.writeParcelable(applicationInfo, flags)
   }
 

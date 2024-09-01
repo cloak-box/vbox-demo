@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.viewbinding.ViewBinding
 import com.black.cat.system.demo.R
 import com.black.cat.system.demo.bean.AppInfo
+import com.black.cat.system.demo.bean.TYPE_APP
+import com.black.cat.system.demo.bean.TYPE_DEFAULT
 import com.black.cat.system.demo.databinding.FragmentXPluginItemBinding
 import com.black.cat.system.demo.databinding.XPluginFragmentBinding
 import com.black.cat.system.demo.ui.act.vsys.AppInstallActivity
@@ -48,7 +50,7 @@ class XPluginFragment : BaseFragment() {
           if (installResult.success) {
             viewModel.getInstalledPlugin(0)
           } else {
-            ToastUtils.toast("安装失败 请检测安装包是否正确")
+            ToastUtils.toast(getString(R.string.x_plugin_install_fail))
           }
         }
       }
@@ -72,7 +74,7 @@ class XPluginFragment : BaseFragment() {
         if (it.metaData?.getBoolean("xposedmodule") == true) {
           installXPlugin.launch(AppInstallActivity.createIntent(fragmentOwner.hostActivity(), it))
         } else {
-          ToastUtils.toast("请选择xposed插件")
+          ToastUtils.toast(getString(R.string.x_plugin_select_xposed_plugin))
         }
       }
     }
@@ -92,7 +94,7 @@ class XPluginFragment : BaseFragment() {
     adapter.checkedChangeListener =
       object : AdapterCheckedChangeListener {
         override fun onCheckedChanged(positionData: AppInfo, isChecked: Boolean) {
-          positionData.isDefault = isChecked
+          positionData.isDefault = if (isChecked) TYPE_DEFAULT else TYPE_APP
           viewModel.savePlugins(adapter.getData())
         }
       }
@@ -126,7 +128,7 @@ class XPluginFragment : BaseFragment() {
 
     list.add(
       MaterialSimpleListItem.Builder(fragmentOwner.hostActivity())
-        .id(R.string.app_remove.toLong())
+        .id(R.string.plugin_remove.toLong())
         .content(R.string.plugin_remove)
         .icon(R.drawable.icon_app_delete)
         .build()
@@ -138,7 +140,7 @@ class XPluginFragment : BaseFragment() {
         _: Int,
         item: MaterialSimpleListItem ->
         when (item.id) {
-          R.string.app_remove.toLong() -> {
+          R.string.plugin_remove.toLong() -> {
             fragmentOwner.showLoading()
             viewModel.unInstallPlugin(applicationInfo)
           }
@@ -177,7 +179,7 @@ class InstalledPluginHolder(itemView: View) :
     )
     binding.tvPluginDesc.text =
       positionData.applicationInfo?.metaData?.getString("xposeddescription")
-    binding.scEnablePlugin.isChecked = positionData.isDefault
+    binding.scEnablePlugin.isChecked = positionData.isDefault == TYPE_DEFAULT
     if (checkedChangeListener != null) {
       binding.scEnablePlugin.setOnCheckedChangeListener { _, isChecked ->
         checkedChangeListener?.onCheckedChanged(positionData, isChecked)

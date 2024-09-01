@@ -5,9 +5,10 @@ import android.os.Build
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.View
+import android.widget.TextView
 import androidx.core.view.get
 import com.black.cat.system.demo.R
-import com.black.cat.system.demo.databinding.ActivityMainBinding
+import com.black.cat.system.demo.databinding.VboxActivityMainBinding
 import com.black.cat.system.demo.ui.base.BaseActivity
 import com.black.cat.system.demo.ui.frag.AppsFragment
 import com.black.cat.system.demo.ui.frag.MeFragment
@@ -18,7 +19,7 @@ import com.hjq.permissions.XXPermissions
 import com.xuexiang.xui.widget.actionbar.TitleBar.TextAction
 
 class MainActivity : BaseActivity() {
-  private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+  private val binding by lazy { VboxActivityMainBinding.inflate(layoutInflater) }
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -41,7 +42,7 @@ class MainActivity : BaseActivity() {
           Build.VERSION.SDK_INT >= 28 && Build.VERSION.PREVIEW_SDK_INT == 1
       ) {
         val action =
-          object : TextAction("内存卡导入") {
+          object : TextAction(getString(R.string.main_import_from_sd)) {
             override fun performAction(view: View?) {
               val position = binding.tabLayout.selectedTabPosition
               if (position == -1) return
@@ -70,7 +71,15 @@ class MainActivity : BaseActivity() {
         override fun onTabSelected(tab: TabLayout.Tab) {
           binding.viewpager.setCurrentItem(tab.id, false)
           binding.titleBar.setLeftText(tab.tag as Int)
-          actionView?.visibility = if (tab.id == 2) View.GONE else View.VISIBLE
+          actionView?.let {
+            actionView.visibility = if (tab.id == 2) View.GONE else View.VISIBLE
+            actionView as TextView
+            if (tab.id == 0) {
+              actionView.text = getString(R.string.main_import_from_sd)
+            } else if (tab.id == 1) {
+              actionView.text = getString(R.string.main_add_plugin)
+            }
+          }
         }
 
         override fun onTabUnselected(tab: TabLayout.Tab) {}

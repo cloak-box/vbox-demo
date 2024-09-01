@@ -44,6 +44,8 @@ class SplashActivity : BaseActivity() {
           "icon_launcher"
         )
       startActivity(Intent(this@SplashActivity, LoginActivity::class.java), options.toBundle())
+    } else if (AppConfig.getAppPassword().isNotEmpty()) {
+      CalcActivity.start(this, checkPassword = true, gotoMain = true)
     } else {
       startActivity(Intent(this@SplashActivity, MainActivity::class.java))
     }
