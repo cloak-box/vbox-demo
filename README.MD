@@ -17,7 +17,8 @@
 
 # 感谢
 1. [pine](https://github.com/canyie/pine)
-1. [xui](https://github.com/xuexiangjys/XUI)
+2. [xui](https://github.com/xuexiangjys/XUI)
+3. [OpenCalc](https://github.com/Darkempire78/OpenCalc)
 # License
 [GPL3](LICENSE) 
 
